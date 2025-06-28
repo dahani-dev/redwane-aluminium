@@ -93,7 +93,8 @@ const Home = () => {
                 largeur: data.largeur,
                 quantite: data.quantite,
                 metreCarre: data.metreCarre,
-                prix: data.hauteur * data.largeur * data.metreCarre * data.quantite,
+                prix:
+                  data.hauteur * data.largeur * data.metreCarre * data.quantite,
               }
             : item
         )
@@ -329,7 +330,7 @@ const Home = () => {
           `${item.hauteur} cm`,
           `${item.largeur} cm`,
           `${item.quantite}`,
-          `${item.hauteur * item.largeur * item.metreCarre / 10000}`,
+          `${(item.hauteur * item.largeur * item.metreCarre) / 10000}`,
           `${(item.prix / 10000).toFixed(2)} DH`,
         ];
 
@@ -611,7 +612,9 @@ const Home = () => {
                 placeholder="La valeur en centimètre"
                 {...register("metreCarre", { valueAsNumber: true })}
               />
-              <p className="mb-1 text-red-500 text-sm">{errors.metreCarre?.message}</p>
+              <p className="mb-1 text-red-500 text-sm">
+                {errors.metreCarre?.message}
+              </p>
             </div>
           </div>
         </div>
